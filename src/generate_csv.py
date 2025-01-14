@@ -35,10 +35,8 @@ if __name__ == "__main__":
   # Random pick for image to be used
   amount_train = 2000
   amount_test = 400 
-  # amount_valid = 400
 
   bound_test = 1000
-  # bound_valid = 1000
   bound_train = 5000
 
 
@@ -53,16 +51,9 @@ if __name__ == "__main__":
   train_real_id = random.sample(range(1, bound_train), train_real_amount)
   train_fake_id = random.sample(range(1, bound_train), train_fake_amount)
 
-  # Create a little imbalance for valid data
-  # valid_real_amount = random.randint(round(0.4*amount_valid), round(0.6*amount_valid))
-  # valid_fake_amount = amount_valid - valid_real_amount
-  # valid_real_id = random.sample(range(1, bound_valid), valid_real_amount)
-  # valid_fake_id = random.sample(range(1, bound_valid), valid_fake_amount)
 
   df_test = make_df("Test", test_real_id, test_fake_id)
   df_train = make_df("Train", train_real_id, train_fake_id)
-  # df_valid = make_df("Valid", valid_real_id, valid_fake_id)
 
   df_test.to_csv(os.path.join(os.getcwd(), "src", "csv", "test.csv"), index=False)
   df_train.to_csv(os.path.join(os.getcwd(), "src", "csv", "train.csv"), index=False)
-  # df_valid.to_csv(os.path.join(os.getcwd(), "src", "csv", "valid.csv"), index=False)
